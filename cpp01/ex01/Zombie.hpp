@@ -2,21 +2,18 @@
 #define ZOMBIE_HPP
 
 #include <iostream>
-using std::cout;
-using std::endl;
-using std::string;
 
 class Zombie {
     private:
-        string name;
+        std::string name;
     public:
         Zombie();
-        Zombie(string name);
+        Zombie(std::string name);
         ~Zombie();
         void announce();
-        void setName(string name);
+        void setName(std::string name);
 };
 
-Zombie* zombieHorde(int N,string name);
+Zombie* zombieHorde(int N, std::string name);
 
 #endif

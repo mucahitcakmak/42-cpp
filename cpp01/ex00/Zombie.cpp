@@ -4,14 +4,14 @@ Zombie::Zombie() {
     name = "";
 }
 
-Zombie::Zombie(string name) {
+Zombie::Zombie(std::string name) {
     this->name = name;
 }
 
 Zombie::~Zombie() {
-    cout << name << " is dead." << endl;
+    std::cout << name << " is dead." << std::endl;
 }
 
 void Zombie::announce() {
-    cout << name << ": BraiiiiiiinnnzzzZ..." << endl;
+    std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
