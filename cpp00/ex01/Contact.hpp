@@ -4,28 +4,22 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-using std::string;
-using std::cin;
-using std::cout;
-using std::endl;
-using std::setw;
-using std::setfill;
 
 class Contact {
     private:
-        string  name;
-        string  surname;
-        string  nickname;
-        string  phone_number;
-        string  dark_secret;
+        std::string  name;
+        std::string  surname;
+        std::string  nickname;
+        std::string  phone_number;
+        std::string  dark_secret;
     public:
         Contact();
-        void set_contact(string n, string sn, string nn, string pn, string ds);
-        string get_name();
-        string get_surname();
-        string get_nickname();
-        string get_phoneNumber();
-        string get_darkestSecret();
+        void set_contact(std::string n, std::string sn, std::string nn, std::string pn, std::string ds);
+        std::string get_name();
+        std::string get_surname();
+        std::string get_nickname();
+        std::string get_phoneNumber();
+        std::string get_darkestSecret();
 };
 
 #endif

@@ -8,7 +8,7 @@ Contact::Contact() {
 	dark_secret = "";
 }
 
-void    Contact::set_contact(string n, string sn, string nn, string pn, string ds)
+void    Contact::set_contact(std::string n, std::string sn, std::string nn, std::string pn, std::string ds)
 {
     Contact::name = n;
     Contact::surname = sn;
@@ -17,22 +17,22 @@ void    Contact::set_contact(string n, string sn, string nn, string pn, string d
     Contact::dark_secret = ds;
 }
 
-string Contact::get_name() {
+std::string Contact::get_name() {
     return (name);
 }
 
-string Contact::get_surname() {
+std::string Contact::get_surname() {
     return (surname);
 }
 
-string Contact::get_nickname() {
+std::string Contact::get_nickname() {
     return (nickname);
 }
 
-string Contact::get_phoneNumber() {
+std::string Contact::get_phoneNumber() {
     return (phone_number);
 }
 
-string Contact::get_darkestSecret() {
+std::string Contact::get_darkestSecret() {
     return (dark_secret);
 }
