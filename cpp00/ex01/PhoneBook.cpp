@@ -59,7 +59,7 @@ void    printTableHeaders() {
 
 void    writeString(std::string str) {
     if (str.length() > 10) {
-        std::cout << std::setw(10) << str.substr(0, 10) << ".|";
+        std::cout << std::setw(9) << str.substr(0, 9) << ".|";
     } else
         std::cout << std::setw(10) << str << "|";
 }
