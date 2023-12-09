@@ -1,11 +1,11 @@
 #include "Dog.hpp"
 
-Dog::Dog(std::string type) {
-	this->type = type;
+Dog::Dog() {
+	this->type = "Dog";
 	std::cout << "The dog class is called." << std::endl;
 }
 
-void Dog::makeSound() {
+void Dog::makeSound() const {
 	std::cout << "woof, woof." << std::endl;
 }
 

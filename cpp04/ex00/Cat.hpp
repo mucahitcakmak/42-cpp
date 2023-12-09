@@ -6,8 +6,8 @@
 
 class Cat : public Animal {
 	public:
-		Cat(std::string type);
-		void makeSound();
+		Cat();
+		void makeSound() const;
 		~Cat();
 };
 

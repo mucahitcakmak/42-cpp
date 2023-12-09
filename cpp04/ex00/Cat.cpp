@@ -1,11 +1,11 @@
 #include "Cat.hpp"
 
-Cat::Cat(std::string type) {
-	this->type = type;
+Cat::Cat() {
+	this->type = "Cat";
 	std::cout << "The cat class is called." << std::endl;
 }
 
-void Cat::makeSound() {
+void Cat::makeSound() const {
 	std::cout << "meow, meow." << std::endl;
 }
 
