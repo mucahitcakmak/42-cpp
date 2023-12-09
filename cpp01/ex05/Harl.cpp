@@ -22,7 +22,7 @@ void Harl::error() {
 void Harl::complain(std::string level) {
     int i = -1;
 	point p[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	std::string levelList[4] = {"DBUG", "INFO", "WARNING", "ERROR"};
+	std::string levelList[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
     while (++i < 4)
         if (level == levelList[i])

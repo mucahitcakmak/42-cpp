@@ -16,6 +16,20 @@ ClapTrap::ClapTrap(std::string name) {
     std::cout << "ClapTrap class that takes a name parameter has been created." << std::endl;
 }
 
+ClapTrap::ClapTrap(const ClapTrap &cpy) {
+    std::cout << "Copy constructor called" << std::endl;
+    *this = cpy;
+}
+
+ClapTrap& ClapTrap::operator = (const ClapTrap &cpy) {
+    std::cout << "Copy assigment constructor called" << std::endl;
+    this->name = cpy.name;
+    this->energyPoints = cpy.energyPoints;
+    this->attackDamage = cpy.attackDamage;
+    this->hitPoints = cpy.hitPoints;
+    return (*this);
+}
+
 void ClapTrap::attack(const std::string& target) {
     if (this->energyPoints > 0 && this->hitPoints > 0) {
         std::cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->hitPoints << " points of damage!" << std::endl;

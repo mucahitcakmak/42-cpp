@@ -16,6 +16,20 @@ ScavTrap::ScavTrap(std::string name) {
     std::cout << "ScavTrap class that takes a name parameter has been created." << std::endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &cpy) : ClapTrap(cpy.name) {
+    std::cout << "Copy constructor called" << std::endl;
+    *this = cpy;
+}
+
+ScavTrap& ScavTrap::operator = (const ScavTrap &cpy) {
+    std::cout << "Copy assigment constructor called" << std::endl;
+    this->name = cpy.name;
+    this->energyPoints = cpy.energyPoints;
+    this->attackDamage = cpy.attackDamage;
+    this->hitPoints = cpy.hitPoints;
+    return (*this);
+}
+
 void ScavTrap::attack(const std::string& target) {
     if (this->energyPoints > 0 && this->hitPoints > 0) {
         std::cout << "ScavTrap " << this->name << " attacks " << target << ", causing " << this->hitPoints << " points of damage!" << std::endl;
