@@ -13,19 +13,27 @@ class Fixed {
         Fixed(const int newValue);
         Fixed(const float newValue);
         Fixed(const Fixed &cpy);
-        Fixed &operator = (const Fixed &cpy);
 
+        static Fixed &min(Fixed &f1, Fixed &f2);
+        static Fixed &max(Fixed &f1, Fixed &f2);
+        const static Fixed &min(const Fixed &f1, const Fixed &f2);
+        const static Fixed &max(const Fixed &f1, const Fixed &f2);
+
+        Fixed &operator = (const Fixed &cpy);
         bool operator > (const Fixed &f) const;
         bool operator >= (const Fixed &f) const;
         bool operator < (const Fixed &f) const;
         bool operator <= (const Fixed &f) const;
         bool operator == (const Fixed &f) const;
         bool operator != (const Fixed &f) const;
-
         float operator + (const Fixed &f) const;
         float operator - (const Fixed &f) const;
         float operator * (const Fixed &f) const;
         float operator / (const Fixed &f) const;
+        Fixed &operator++();
+        Fixed operator++(int);
+        Fixed &operator--();
+        Fixed operator--(int);
 
         int toInt(void) const;
         float toFloat(void) const;
