@@ -7,6 +7,8 @@
 class Cat : public Animal {
 	public:
 		Cat();
+		Cat(const Cat &cpy);
+		Cat &operator = (const Cat &cpy);
 		void makeSound() const;
 		~Cat();
 };

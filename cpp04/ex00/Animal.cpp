@@ -2,6 +2,7 @@
 
 Animal::Animal() {
 	std::cout << "The animal class is called." << std::endl;
+	this->type = "Empty";
 }
 
 Animal::Animal(const Animal &cpy) {
@@ -16,7 +17,7 @@ Animal& Animal::operator = (const Animal &cpy) {
 }
 
 void Animal::makeSound() const {
-	std::cout << "Empty" << std::endl;
+	std::cout << "There is nothing here..." << std::endl;
 }
 
 std::string Animal::getType() const {
