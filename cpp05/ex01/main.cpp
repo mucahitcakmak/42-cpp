@@ -11,8 +11,6 @@ int main() {
     
     std::cout << "----------" << std::endl;
     std::cout << mucox.getName() << " - " << mucox.getGrade() << std::endl;
-    std::cout << std::endl;
-
     esadx.increment();
     mucox.decrement();
     std::cout << esadx << std::endl;
@@ -20,6 +18,14 @@ int main() {
     std::cout << "----------" << std::endl << std::endl;
 
 
-    Form a("A1", 3, 151);
-    std::cout << a << std::endl << std::endl;
+    std::cout << "----- FORM -----" << std::endl;
+    Form a("A", 1, 4);
+    Form b("B", 6, 9);
+    std::cout << a << std::endl;
+    std::cout << b << std::endl;
+
+    mucox.signForm(a);
+    esadx.signForm(a);
+    esadx.signForm(a);
+    std::cout << "----------" << std::endl << std::endl;
 }

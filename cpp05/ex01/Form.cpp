@@ -37,6 +37,13 @@ Form &Form::operator = (const Form &cpy) {
     return (*this);
 }
 
+void Form::beSigned(const Bureaucrat &b) {
+    if (b.getGrade() > this->getGrade())
+        throw(GradeTooLowException());
+    std::cout << "The form is signed." <<std::endl;
+    this->isSigned = true;
+}
+
 Form::~Form() {
 	std::cout << "Form destructor called." << std::endl;
 }

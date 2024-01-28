@@ -4,9 +4,9 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name) {
     std::cout << "Bureaucrat constructor called." << std::endl;
     try {
         if (grade > 150)
-            throw (GradeTooHighException());
-        else if (grade < 1)
             throw (GradeTooLowException());
+        else if (grade < 1)
+            throw (GradeTooHighException());
         else
             this->grade = grade;
     }

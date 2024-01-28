@@ -4,9 +4,9 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name) {
     std::cout << "Bureaucrat constructor called." << std::endl;
     try {
         if (grade > 150)
-            throw (GradeTooHighException());
-        else if (grade < 1)
             throw (GradeTooLowException());
+        else if (grade < 1)
+            throw (GradeTooHighException());
         else
             this->grade = grade;
     }
@@ -44,6 +44,15 @@ void Bureaucrat::decrement() {
     } catch (const std::exception &e) {
         this->grade--;
         std::cout << e.what() << std::endl;
+    }
+}
+
+void Bureaucrat::signForm(Form &f) {
+    try {
+        f.beSigned(*this);
+        std::cout << this->name << " signed " << f.getName() << std::endl;
+    } catch (const std::exception &e) {
+        std::cout << this->name << " couldn't sign " << f.getName() <<" because " << e.what() << std::endl;
     }
 }
 

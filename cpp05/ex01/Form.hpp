@@ -2,6 +2,9 @@
 #define FORM_HPP
 
 #include <iostream>
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form {
     private:
@@ -16,7 +19,7 @@ class Form {
         std::string getName() const;
         int getGrade() const;
 		Form& operator = (Form const &cpy);
-        // besigned ve signForm kaldı
+        void beSigned(const Bureaucrat &b);
         class GradeTooHighException : public std::exception {
             const char* what() const throw();
         };
