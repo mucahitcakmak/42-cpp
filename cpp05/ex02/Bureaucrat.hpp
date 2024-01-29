@@ -19,6 +19,7 @@ class Bureaucrat {
         void decrement();
 
         void signForm(AForm &f);
+        void executeForm(AForm const &form);
 
         Bureaucrat(const Bureaucrat &cpy);
 		Bureaucrat& operator = (Bureaucrat const &cpy);

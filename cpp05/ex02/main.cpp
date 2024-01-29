@@ -16,6 +16,8 @@ int main() {
     std::cout << mucox.getName() << " - " << mucox.getGrade() << std::endl;
     esadx.increment();
     mucox.decrement();
+    RobotomyRequestForm temp("Temp");
+    esadx.executeForm(temp);
     std::cout << esadx << std::endl;
     std::cout << mucox << std::endl << std::endl;
 
