@@ -48,6 +48,10 @@ void Bureaucrat::decrement() {
 }
 
 void Bureaucrat::signForm(Form &f) {
+    if (f.getIsSigned()) {
+        std::cout << this->name << " couldn't sign " << f.getName() <<" because " << "the form is already signed." << std::endl;
+        return ;
+    }
     try {
         f.beSigned(*this);
         std::cout << this->name << " signed " << f.getName() << std::endl;

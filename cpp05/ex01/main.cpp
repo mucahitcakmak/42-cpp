@@ -27,5 +27,7 @@ int main() {
     mucox.signForm(a);
     esadx.signForm(a);
     esadx.signForm(a);
+    std::cout << a.getIsSigned() << std::endl;
+    std::cout << b.getIsSigned() << std::endl;
     std::cout << "----------" << std::endl << std::endl;
 }

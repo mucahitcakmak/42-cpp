@@ -18,6 +18,8 @@ class Form {
         Form(const Form &cpy);
         std::string getName() const;
         int getGrade() const;
+        int getExecGrade() const;
+        bool getIsSigned() const;
 		Form& operator = (Form const &cpy);
         void beSigned(const Bureaucrat &b);
         class GradeTooHighException : public std::exception {

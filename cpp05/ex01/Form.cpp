@@ -26,6 +26,15 @@ int Form::getGrade() const {
     return (this->signGrade);
 }
 
+
+int Form::getExecGrade() const {
+    return (this->execGrade);
+}
+
+bool Form::getIsSigned() const {
+    return (this->isSigned);
+}
+
 Form::Form(const Form &cpy) : name(cpy.name), isSigned(cpy.isSigned), signGrade(cpy.signGrade), execGrade(cpy.execGrade) {
     *this = cpy;
     std::cout << "Form copy constructor is called." << std::endl;
@@ -40,7 +49,6 @@ Form &Form::operator = (const Form &cpy) {
 void Form::beSigned(const Bureaucrat &b) {
     if (b.getGrade() > this->getGrade())
         throw(GradeTooLowException());
-    std::cout << "The form is signed." <<std::endl;
     this->isSigned = true;
 }
 
@@ -58,6 +66,7 @@ const char* Form::GradeTooLowException::what() const throw() {
 
 std::ostream &operator << (std::ostream &output, const Form &f)
 {
-    output << f.getName() << ", form sign grade " << f.getGrade() << ".";
+    output << f.getName() << "Form: sign grade " << f.getGrade() 
+        << ", execute grade " << f.getExecGrade() << ", form is signed " << f.getIsSigned() << ".";
     return output;
 }
