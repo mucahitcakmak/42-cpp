@@ -7,7 +7,7 @@
 
 class ShrubberyCreationForm : public AForm {
     private:
-        std::string form_name;
+        std::string target;
     public:
         ShrubberyCreationForm(std::string target);
         ShrubberyCreationForm(const ShrubberyCreationForm &cpy);

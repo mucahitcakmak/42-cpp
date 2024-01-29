@@ -1,20 +1,20 @@
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137) {
-    this->form_name = target;
+    this->target = target;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &cpy) : AForm(cpy) {}
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator = (const ShrubberyCreationForm &cpy) {
-    this->form_name = cpy.form_name;
+    this->target = cpy.target;
     return (*this);
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	this->AForm::execute(executor);
-    std::ofstream file((this->form_name + "_shrubbery").c_str());
+    std::ofstream file((this->target + "_shrubbery").c_str());
 
     file << "              _{\\ _{\\{\\/}/}/}__\n"
             "             {/{/\\}{/{/\\}(\\}{/\\} _\n"
