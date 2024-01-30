@@ -74,12 +74,12 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 
 Bureaucrat::Bureaucrat(const Bureaucrat &cpy) : name(cpy.name) {
     std::cout << "Bureaucrat copy constructor is called." << std::endl;
-    this->grade = grade;
+    this->grade = cpy.grade;
 }
 
 Bureaucrat &Bureaucrat::operator = (const Bureaucrat &cpy) {
     std::cout << "Bureaucrat copy assignment constructor is called." << std::endl;
-    Bureaucrat::operator=(cpy);
+    this->grade = cpy.grade;
     return (*this);
 }
 

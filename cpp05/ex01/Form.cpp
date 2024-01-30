@@ -42,7 +42,9 @@ Form::Form(const Form &cpy) : name(cpy.name), isSigned(cpy.isSigned), signGrade(
 
 Form &Form::operator = (const Form &cpy) {
     std::cout << "Form copy assignment constructor is called." << std::endl;
-    Form::operator=(cpy);
+    if (this != &cpy) {
+    	this->isSigned = cpy.isSigned;
+	}
     return (*this);
 }
 
@@ -66,7 +68,7 @@ const char* Form::GradeTooLowException::what() const throw() {
 
 std::ostream &operator << (std::ostream &output, const Form &f)
 {
-    output << f.getName() << "Form: sign grade " << f.getGrade() 
+    output << f.getName() << " Form: sign grade " << f.getGrade() 
         << ", execute grade " << f.getExecGrade() << ", form is signed " << f.getIsSigned() << ".";
     return output;
 }

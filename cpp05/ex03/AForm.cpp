@@ -42,7 +42,9 @@ AForm::AForm(const AForm &cpy) : name(cpy.name), isSigned(cpy.isSigned), signGra
 
 AForm &AForm::operator = (const AForm &cpy) {
     std::cout << "AForm copy assignment constructor is called." << std::endl;
-    AForm::operator=(cpy);
+    if (this != &cpy) {
+    	this->isSigned = cpy.isSigned;
+	}
     return (*this);
 }
 
@@ -82,7 +84,7 @@ const char* AForm::FormNotSigned::what() const throw() {
 
 std::ostream &operator << (std::ostream &output, const AForm &f)
 {
-    output << f.getName() << "AForm: sign grade " << f.getGrade() 
+    output << f.getName() << " : sign grade " << f.getGrade() 
         << ", execute grade " << f.getExecGrade() << ", form is signed " << f.getIsSigned() << ".";
     return output;
 }
