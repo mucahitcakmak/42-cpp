@@ -31,18 +31,3 @@ T max(T a, T b) {
 }
 
 #endif
-
-/* Template
-davranışı aynı fakat veri tipi farklı olan fonksiyonlar.
-tekrarlı yazımlardan kurtulmak içinde kullanılır.
-
--> şablonlar bir fonksiyon değildirler, fonksiyon üretme planlarıdır.
-
-template<typename T>
-T topla(T a, T b) {
-    return (a + b);
-}
-
-topla(2, 3);
-topla(2.5f, 3.2f);
-*/
