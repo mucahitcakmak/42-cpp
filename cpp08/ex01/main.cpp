@@ -19,7 +19,7 @@ int main()
 	std::vector<int> numbers;
 	for (int i = 0; i < 6; i++) {
     	int random_n = rand() % 50;
-		std::cout << random_n << " - ";
+		std::cout << random_n << "  ";
 		numbers.push_back(random_n);
 	}
 	std::cout << std::endl;
