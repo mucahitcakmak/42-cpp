@@ -3,7 +3,7 @@
 int RPN::is_operator(char c) {
     int tmp_number;
 
-    if (stack.size() != 2) {
+    if (stack.size() < 2) {
         std::cout << "Error\n";
         exit(1);
     }
@@ -49,6 +49,10 @@ void RPN::run(std::string str) {
             stack.push(str[i] - '0');
         else
             is_operator(str[i]);
-        std::cout << stack.top() << std::endl;
     }
+    if (stack.size() != 1) {
+        std::cout << "Error\n";
+        exit(1);
+    }
+    std::cout << stack.top() << std::endl;
 }
