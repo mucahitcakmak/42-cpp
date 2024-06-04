@@ -13,4 +13,5 @@ class BitcoinExchange {
         void read_data();
         void read_input(std::string input_file_name);
         void check_line_and_print(std::string line);
+        void find_date_and_print(std::string date, float value);
 };

@@ -74,7 +74,28 @@ void BitcoinExchange::check_line_and_print(std::string line) {
         else if (value > 1000)
             std::cout << "Error: too large a number." << std::endl;
         else
-            std::cout << line << std::endl;
+            find_date_and_print(line.substr(0, 10), value);
     } else
         std::cout << "Error: bad input => " << line.substr(0, 10) << std::endl;
+}
+
+void BitcoinExchange::find_date_and_print(std::string date, float value) {
+    std::map<std::string, float>::iterator it = btc_data.begin();
+    bool flag;
+
+    while (it != btc_data.end()) {
+        if (it->first == date) {
+            std::cout << date << " => " << value << " = " << (it->second * value) << std::endl;
+            flag = false;
+            break;
+        }
+        it++;
+        if (it == btc_data.end())
+            flag = true;
+    }
+    if (flag) {
+        it = btc_data.lower_bound(date);
+        it--;
+        std::cout << date << " => " << value << " = " << (it->second * value) << std::endl;
+    }
 }
