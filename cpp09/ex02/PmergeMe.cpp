@@ -52,15 +52,107 @@ void PmergeMe::check_and_fill(int ac, char **av) {
         if (value < 1)
             exit_program();
         std::cout << "G. Sayı: " << value << std::endl;
-        // İki containere değerler yüklenecek
-    }   
+        vector.push_back(value);
+        lst.push_back(value);
+    }
 }
 
-void PmergeMe::sort() {
+std::vector<int> PmergeMe::mergeForVec(const std::vector<int> &left, const std::vector<int> &right) {
+    std::vector<int> result;
+    size_t i = 0, j = 0;
+    
+    while (i < left.size() && j < right.size()) {
+        if (left[i] <= right[j]) {
+            result.push_back(left[i++]);
+        } else {
+            result.push_back(right[j++]);
+        }
+    }
+    while (i < left.size()) {
+        result.push_back(left[i++]);
+    }
+    while (j < right.size()) {
+        result.push_back(right[j++]);
+    }
+    
+    return result;
+}
 
+std::vector<int> PmergeMe::fordJohnsonSortForVec(std::vector<int> &vec) {
+    if (vec.size() <= 1) return vec;
+    
+    size_t mid = vec.size() / 2;
+    std::vector<int> left(vec.begin(), vec.begin() + mid);
+    std::vector<int> right(vec.begin() + mid, vec.end());
+    
+    left = fordJohnsonSortForVec(left);
+    right = fordJohnsonSortForVec(right);
+    
+    return mergeForVec(left, right);
+}
+
+void PmergeMe::printVec(std::string title, std::vector<int> &vec) {
+    std::cout << title;
+    for (size_t i = 0; i < vec.size(); ++i) {
+        std::cout << vec[i] << " ";
+    }
+    std::cout << std::endl;
+}
+
+std::list<int> PmergeMe::mergeForList(const std::list<int> &left, const std::list<int> &right) {
+    std::list<int> result;
+    std::list<int>::const_iterator it1 = left.begin();
+    std::list<int>::const_iterator it2 = right.begin();
+
+    while (it1 != left.end() && it2 != right.end()) {
+        if (*it1 <= *it2) {
+            result.push_back(*it1++);
+        } else {
+            result.push_back(*it2++);
+        }
+    }
+    while (it1 != left.end()) {
+        result.push_back(*it1++);
+    }
+    while (it2 != right.end()) {
+        result.push_back(*it2++);
+    }
+
+    return result;
+}
+
+std::list<int> PmergeMe::fordJohnsonSortForList(std::list<int> &lst) {
+    if (lst.size() <= 1) return lst;
+    
+    std::list<int>::iterator mid = lst.begin();
+    std::advance(mid, lst.size() / 2);
+    std::list<int> left(lst.begin(), mid);
+    std::list<int> right(mid, lst.end());
+    
+    left = fordJohnsonSortForList(left);
+    right = fordJohnsonSortForList(right);
+    
+    return mergeForList(left, right);
+}
+
+void PmergeMe::printList(std::string title, std::list<int> &lst) {
+    std::cout << title;
+    for (std::list<int>::iterator it = lst.begin(); it != lst.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
 }
 
 void PmergeMe::run(int ac, char **av) {
+        std::vector<int> sorted_vector;
+        std::list<int> sorted_list;
         check_and_fill(ac, av);
-        sort();
+
+        printVec("Before: ", vector);
+        sorted_vector = fordJohnsonSortForVec(vector);
+        printVec("After: ", sorted_vector);
+
+        printList("Before: ", lst);
+        sorted_list = fordJohnsonSortForList(lst);
+        printList("After: ", sorted_list);
 }

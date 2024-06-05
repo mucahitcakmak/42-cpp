@@ -1,3 +1,6 @@
+#ifndef BITCOINEXCHANGE_HPP
+#define BITCOINEXCHANGE_HPP
+
 #include <iostream>
 #include <map>
 #include <string>
@@ -15,3 +18,5 @@ class BitcoinExchange {
         void check_line_and_print(std::string line);
         void find_date_and_print(std::string date, float value);
 };
+
+#endif

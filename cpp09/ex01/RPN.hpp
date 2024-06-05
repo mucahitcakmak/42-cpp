@@ -1,3 +1,6 @@
+#ifndef RPN_HPP
+#define RPN_HPP
+
 #include <iostream>
 #include <string>
 #include <stack>
@@ -10,3 +13,5 @@ class RPN {
         int is_operator(char c);
         void run(std::string str);
 };
+
+#endif
