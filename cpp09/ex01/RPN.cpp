@@ -1,5 +1,20 @@
 #include "RPN.hpp"
 
+RPN::RPN() { }
+
+RPN::RPN(const RPN &cpy) {
+    if (this != &cpy) {
+        this->stack = cpy.stack;
+    }
+}
+
+RPN &RPN::operator = (const RPN &copy) {
+    (void)copy;
+    return *this;
+}
+
+RPN::~RPN() { }
+
 int RPN::is_operator(char c) {
     int tmp_number;
 

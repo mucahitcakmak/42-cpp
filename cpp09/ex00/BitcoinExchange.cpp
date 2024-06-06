@@ -1,5 +1,21 @@
 #include "BitcoinExchange.hpp"
 
+BitcoinExchange::BitcoinExchange() { }
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &cpy) {
+    if (this != &cpy) {
+        this->btc_data = cpy.btc_data;
+        this->min_year = cpy.min_year;
+    }
+}
+
+BitcoinExchange &BitcoinExchange::operator = (const BitcoinExchange &copy) {
+    (void)copy;
+    return *this;
+}
+
+BitcoinExchange::~BitcoinExchange() { }
+
 int ft_stoi(std::string str) {
     int i = 0;
     int num = 0;

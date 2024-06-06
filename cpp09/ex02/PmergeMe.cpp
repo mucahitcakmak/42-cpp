@@ -51,7 +51,6 @@ void PmergeMe::check_and_fill(int ac, char **av) {
         int value = ft_stoi(av[i]);
         if (value < 1)
             exit_program();
-        std::cout << "G. Sayı: " << value << std::endl;
         vector.push_back(value);
         lst.push_back(value);
     }
@@ -152,7 +151,15 @@ void PmergeMe::run(int ac, char **av) {
         sorted_vector = fordJohnsonSortForVec(vector);
         printVec("After: ", sorted_vector);
 
-        printList("Before: ", lst);
+        std::clock_t startVector = std::clock();
+        sorted_vector = fordJohnsonSortForVec(vector);
+        std::clock_t endVector = std::clock();
+        double vectorTime = 1000.0 * (endVector - startVector) / CLOCKS_PER_SEC;
+        std::cout << "Time to process a range of " << sorted_vector.size() << " elements with std::vector: " << vectorTime << " ms\n";
+
+        std::clock_t startList = std::clock();
         sorted_list = fordJohnsonSortForList(lst);
-        printList("After: ", sorted_list);
+        std::clock_t endList = std::clock();
+        double listTime = 1000.0 * (endList - startList) / CLOCKS_PER_SEC;
+        std::cout << "Time to process a range of " << sorted_list.size() << " elements with std::list: " << listTime << " ms\n";
 }
